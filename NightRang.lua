@@ -1442,12 +1442,12 @@ photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end 
 tdcli_function ({ID = "ChangeChatPhoto",chat_id_ = msg.chat_id_,photo_ = getInputFile(photo_id) }, function(arg,data)   
 if data.code_ == 3 then
-send(msg.chat_id_, msg.id_,"• عذرا البوت ليس ادمن يرجى ترقيتي والمحاوله لاحقا") 
+send(msg.chat_id_, msg.id_,"• عذرا البوت ليس ادمن يرجى ترقيتي والمحاولة لاحقا") 
 redis:del(bot_id.."NightRang:Set:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 return false 
 end
 if data.message_ == "CHAT_ADMIN_REQUIRED" then 
-send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية تغيير معلومات المجموعة يرجى المحاوله لاحقا") 
+send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية تغيير معلومات المجموعة يرجى المحاولة لاحقا") 
 redis:del(bot_id.."NightRang:Set:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 else
 send(msg.chat_id_, msg.id_,"• تم تغيير صورة المجموعة") 
@@ -2339,7 +2339,7 @@ send(msg.chat_id_, msg.id_,'• البوت ادمن في القناة \n تم ت
 redis:set(bot_id..'add:ch:id',data.id_)
 redis:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
 else
-send(msg.chat_id_, msg.id_,'• البوت ليس ادمن في القناة يرجى ترقيته ادمن ثم اعادة المحاوله ') 
+send(msg.chat_id_, msg.id_,'• البوت ليس ادمن في القناة يرجى ترقيته ادمن ثم اعادة المحاولة ') 
 end
 return false  
 end
@@ -4462,7 +4462,7 @@ if res == 200 then
 send(msg.chat_id_, msg.id_,"• تم الغاء تثبيت كل الرسائل المثبته")   
 redis:del(bot_id..'Pin:Id:Msg'..msg.chat_id_)
 elseif res == 400 then
-send(msg.chat_id_,msg.id_,"• انا لست مشرف هنا يرجى ترقيتي مشرف او ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات ثم اعد المحاوله")  
+send(msg.chat_id_,msg.id_,"• انا لست مشرف هنا يرجى ترقيتي مشرف او ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات ثم اعد المحاولة")  
 end
 end
 if text == ("مسح قائمة العام") and DeveloperBot1(msg) or text == ("مسح المحظورين عام") and DeveloperBot1(msg) then
