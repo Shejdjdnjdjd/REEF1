@@ -7680,7 +7680,7 @@ end
 if text == 'السورس' or text == 'سورس' then
 Text = [[
 
-[Brother Source](t.me/rrxrrr)
+[Ch dev yousef](t.me/yousef_labban1)
 
 [مطور السورس ](t.me/yousef_labban)
 
