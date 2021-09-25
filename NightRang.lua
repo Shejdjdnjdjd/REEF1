@@ -1857,9 +1857,9 @@ for k,v in pairs(filter) do
 if v == msg.content_.photo_.id_ then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-send(msg.chat_id_,0,"•عذرا يا ⇠ [@"..data.username_.."]\n• الصوره التي ارسلتها تم منعها من المجموعة \n" ) 
+send(msg.chat_id_,0,"•عذرا يا ⇠ [@"..data.username_.."]\n• الصورة التي ارسلتها تم منعها من المجموعة \n" ) 
 else
-send(msg.chat_id_,0,"•عذرا يا ⇠ ["..data.first_name_.."](T.ME/NightRang)\n• الصوره التي ارسلتها تم منعها من المجموعة \n") 
+send(msg.chat_id_,0,"•عذرا يا ⇠ ["..data.first_name_.."](T.ME/NightRang)\n• الصورة التي ارسلتها تم منعها من المجموعة \n") 
 end
 end,nil)   
 Delete_Message(msg.chat_id_,{[0] = msg.id_})       
@@ -2668,12 +2668,12 @@ send(msg.chat_id_,msg.id_,'•  ارسل لي الكليشه الان')
 end
 if text=="اذاعه خاص" then 
 redis:setex(bot_id.."NightRang:Broadcasting:Users" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صوره - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
+send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صورة - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
 return false
 end
 if text=="اذاعه للمجموعات" then 
 redis:setex(bot_id.."NightRang:Broadcasting:Groups" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صوره - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
+send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صورة - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
 return false
 end
 if text=="اذاعه بالتوجيه" and DeveloperBot(msg) then 
@@ -5401,7 +5401,7 @@ end
 if text=="اذاعه بالتثبيت" and Dev_Bots(msg) then
  
 redis:setex(bot_id.."BotNightRang:Broadcasting:Groups:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"ارسل لي المنشور الان\nيمكنك ارسال -{ صوره - ملصق - متحركه - رساله }\n⚠لالغاء الاذاعه ارسل : الغاء") 
+send(msg.chat_id_, msg.id_,"ارسل لي المنشور الان\nيمكنك ارسال -{ صورة - ملصق - متحركه - رساله }\n⚠لالغاء الاذاعه ارسل : الغاء") 
 return false
 end
 
@@ -5445,21 +5445,21 @@ end
 redis:set(bot_id..'NightRang:Lock:Id:Photo'..msg.chat_id_,true) 
 return send(msg.chat_id_, msg.id_,'• تم تعطيل الايدي') 
 end
-if text == 'تفعيل الايدي بالصوره' then
+if text == 'تفعيل الايدي بالصورة' then
 
 if not Owner(msg) then
 return send(msg.chat_id_,msg.id_,'*•اهلا عزيزي \n عذرا الامر يخص - مدير - منشئ*')
 end   
 redis:del(bot_id..'NightRang:Lock:Id:Py:Photo'..msg.chat_id_) 
-return send(msg.chat_id_, msg.id_,'• تم تفعيل الايدي بالصوره') 
+return send(msg.chat_id_, msg.id_,'• تم تفعيل الايدي بالصورة') 
 end
-if text == 'تعطيل الايدي بالصوره' then
+if text == 'تعطيل الايدي بالصورة' then
 
 if not Owner(msg) then
 return send(msg.chat_id_,msg.id_,'*•اهلا عزيزي \n عذرا الامر يخص - مدير - منشئ*')
 end  
 redis:set(bot_id..'NightRang:Lock:Id:Py:Photo'..msg.chat_id_,true) 
-return send(msg.chat_id_, msg.id_,'• تم تعطيل الايدي بالصوره') 
+return send(msg.chat_id_, msg.id_,'• تم تعطيل الايدي بالصورة') 
 end
 if text == 'تعطيل الالعاب' then
 
@@ -5604,7 +5604,7 @@ local function getpro(extra, result, success)
 if result.photos_[0] then
 sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,'')
 else
-send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
+send(msg.chat_id_, msg.id_,'لا تمتلك صورة في حسابك')
 end 
 end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
@@ -5616,9 +5616,9 @@ send(msg.chat_id_,msg.id_,"• ارسل رابط المجموعة او رابط 
 redis:setex(bot_id.."NightRang:link:set"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false 
 end
-if text and text:match("^ضع صوره") and Admin(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Admin(msg) and msg.reply_to_message_id_ == 0 then  
+if text and text:match("^ضع صورة") and Admin(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صورة") and Admin(msg) and msg.reply_to_message_id_ == 0 then  
 redis:set(bot_id.."NightRang:Set:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
-send(msg.chat_id_,msg.id_,"• ارسل الصوره لوضعها") 
+send(msg.chat_id_,msg.id_,"• ارسل الصورة لوضعها") 
 return false 
 end
 if text == "ضع وصف" and Admin(msg) or text == "وضع وصف" and Admin(msg) then  
@@ -5695,7 +5695,7 @@ send(msg.chat_id_,msg.id_,"• تم ازالة رابط المجموعة")
 redis:del(bot_id.."NightRang:link:set:Group"..msg.chat_id_) 
 return false 
 end
-if text == "حذف الصوره" and Admin(msg) or text == "مسح الصوره" and Admin(msg) then
+if text == "حذف الصورة" and Admin(msg) or text == "مسح الصورة" and Admin(msg) then
  
 https.request("https://api.telegram.org/bot"..token.."/deleteChatPhoto?chat_id="..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"• تم ازالة صورة المجموعة") 
@@ -6434,7 +6434,7 @@ send(msg.chat_id_, msg.id_,"*\n• اعدادات المجموعة "..
 "\n".."• الرفع "..Setusers..
 "\n".."• الطرد "..Banusers..
 "\n".."• الايدي "..IdPhoto..
-"\n".."• الايدي بالصوره "..IdPyPhoto..
+"\n".."• الايدي بالصورة "..IdPyPhoto..
 "\n".."• اطردني "..KickMe..
 "\n".."• الردود "..ReplyManager..
 "\n".."• الردود العامة  "..ReplySudo..
@@ -6565,7 +6565,7 @@ db = "ملصق "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Manager:Text"..v..msg.chat_id_) then
 db = "رساله "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Manager:Photo"..v..msg.chat_id_) then
-db = "صوره "
+db = "صورة "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Manager:Video"..v..msg.chat_id_) then
 db = "فيديو "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Manager:File"..v..msg.chat_id_) then
@@ -6675,7 +6675,7 @@ db = "ملصق "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Sudo:Text"..v) then
 db = "رساله "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Sudo:Photo"..v) then
-db = "صوره "
+db = "صورة "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Sudo:Video"..v) then
 db = "فيديو "
 elseif redis:get(bot_id.."NightRang:Add:Rd:Sudo:File"..v) then
@@ -6762,7 +6762,7 @@ if redis:get(bot_id.."NightRang:Broadcasting:Bot") and not Dev_Bots(msg) then
 send(msg.chat_id_, msg.id_,"• تم تعطيل الاذاعه من قبل المطور !")
 return false end
 redis:setex(bot_id.."NightRang:Broadcasting:Users" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صوره - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
+send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صورة - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
 return false
 end
 if text=="اذاعه" and msg.reply_to_message_id_ == 0 and DeveloperBot(msg) then
@@ -6771,7 +6771,7 @@ if redis:get(bot_id.."NightRang:Broadcasting:Bot") and not Dev_Bots(msg) then
 send(msg.chat_id_, msg.id_,"• تم تعطيل الاذاعه من قبل المطور !")
 return false end
 redis:setex(bot_id.."NightRang:Broadcasting:Groups" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صوره - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
+send(msg.chat_id_, msg.id_,"• ارسل لي المنشور الان\n• يمكنك ارسال -{ صورة - ملصق - متحركه - رساله }\n• لالغاء الاذاعه ارسل : الغاء") 
 return false
 end
 if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  and DeveloperBot(msg) then
@@ -6807,7 +6807,7 @@ send(msg.chat_id_, msg.id_,[[
 • `#edit` » عدد السحكات
 • `#game` » عدد النقاط
 • `#AddMem` » عدد الجهات
-• `#Description` » تعليق الصوره
+• `#Description` » تعليق الصورة
 ]])
 return false  
 end 
@@ -7805,7 +7805,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصورة صحيحه ")   
 return false 
 end      
 usertext = '\n• العضو ⇠ ['..result.title_..'](t.me/'..(username or 'NightRang')..')'
@@ -7855,7 +7855,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصورة صحيحه ")   
 return false 
 end      
 usertext = '\n• العضو ⇠ ['..result.title_..'](t.me/'..(username or 'NightRang')..')'
@@ -7905,7 +7905,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصورة صحيحه ")   
 return false 
 end      
 usertext = '\n• العضو ⇠ ['..result.title_..'](t.me/'..(username or 'NightRang')..')'
@@ -7957,7 +7957,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصورة صحيحه ")   
 return false 
 end      
 usertext = '\n• العضو ⇠ ['..result.title_..'](t.me/'..(username or 'NightRang')..')'
@@ -8008,7 +8008,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصورة صحيحه ")   
 return false 
 end      
 usertext = '\n• العضو ⇠ ['..result.title_..'](t.me/'..(username or 'NightRang')..')'
@@ -8041,7 +8041,7 @@ end
 if b.content_.ID == "MessagePhoto" then
 local photo = b.content_.photo_.id_
 redis:sadd(bot_id.."filterphoto"..msg.chat_id_,photo)
-text = 'الصوره'
+text = 'الصورة'
 send(msg.chat_id_, msg.id_,textt..'( '..text..' ) بنجاح لن يتم ارسالها مجددا')  
 return false
 end
@@ -8073,7 +8073,7 @@ end
 if b.content_.ID == "MessagePhoto" then
 local photo = b.content_.photo_.id_
 redis:srem(bot_id.."filterphoto"..msg.chat_id_,photo)
-text = 'الصوره'
+text = 'الصورة'
 send(msg.chat_id_, msg.id_,textt..'( '..text..' ) بنجاح يمكنهم الارسال الان')  
 return false
 end
@@ -8256,7 +8256,7 @@ local Total_Photp = (yazon.total_count_ or 0)
 local Texting = {
 'ملاك وناسيك بقروبنه😟',
 "حلغوم والله☹️ ",
-"اطلق صوره🐼❤️",
+"اطلق صورة🐼❤️",
 "كيكك والله🥺",
 "لازك بيها غيرها عاد",
 }
@@ -8427,11 +8427,11 @@ local Name_File = download_to_file('https://api.telegram.org/file/bot'..token..'
 sendSticker(msg.chat_id_,msg.id_,Name_File)
 os.execute('rm -rf '..Name_File) 
 else
-send(msg.chat_id_,msg.id_,'هذه ليست صوره')
+send(msg.chat_id_,msg.id_,'هذه ليست صورة')
 end
 end, nil)
 end
-if text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
+if text == 'صورة' and tonumber(msg.reply_to_message_id_) > 0 then
 
 tdcli_function({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},function(arg,data)
 if data.content_.ID == "MessageSticker" then    
@@ -8664,7 +8664,7 @@ keyboard.inline_keyboard = {
 {text = 'تعطيل الايدي', callback_data=msg.sender_user_id_.."/lockide"},{text = 'تفعيل الايدي', callback_data=msg.sender_user_id_.."/unlockide"},
 },
 {
-{text = 'تعطيل الايدي بالصوره', callback_data=msg.sender_user_id_.."/lockidephoto"},{text = 'تفعيل الايدي بالصوره', callback_data=msg.sender_user_id_.."/unlockidephoto"},
+{text = 'تعطيل الايدي بالصورة', callback_data=msg.sender_user_id_.."/lockidephoto"},{text = 'تفعيل الايدي بالصورة', callback_data=msg.sender_user_id_.."/unlockidephoto"},
 },
 {
 {text = 'تعطيل الحظر', callback_data=msg.sender_user_id_.."/lockkiked"},{text = 'تفعيل الحظر', callback_data=msg.sender_user_id_.."/unlockkiked"},
@@ -8949,7 +8949,7 @@ if msg.content_.ID == "MessageChatJoinByLink" and not redis:get(bot_id..'NightRa
 numphoto = {'20288','29216','58921','66899'}
 numphotoid = numphoto[math.random(#numphoto)]
 print(numphotoid)
-local Text = ' مرحبا بك في المجموعة \n تم تفعيل خاصيه التعرف على الحسابات \n لالغاء التقييد اضغط على الرقم المشابه في الصوره ↓\n'
+local Text = ' مرحبا بك في المجموعة \n تم تفعيل خاصيه التعرف على الحسابات \n لالغاء التقييد اضغط على الرقم المشابه في الصورة ↓\n'
 keyboard = {}  
 keyboard.inline_keyboard = {
 {
@@ -9489,7 +9489,7 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
 elseif Text and Text:match('(.*)/lockidephoto') and Owner(data) then
 if tonumber(Text:match('(.*)/lockidephoto')) == tonumber(data.sender_user_id_) then
-local Textedit = '• تم تعطيل الايدي بالصوره '
+local Textedit = '• تم تعطيل الايدي بالصورة '
 redis:set(bot_id..'NightRang:Lock:Id:Py:Photo'..Chat_id,true) 
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9644,7 +9644,7 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  end
 elseif Text and Text:match('(.*)/unlockidephoto') and Owner(data) then
 if tonumber(Text:match('(.*)/unlockidephoto')) == tonumber(data.sender_user_id_) then
-local Textedit = '• تم تفعيل الايدي بالصوره '
+local Textedit = '• تم تفعيل الايدي بالصورة '
 redis:del(bot_id..'NightRang:Lock:Id:Py:Photo'..Chat_id)  
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9755,7 +9755,7 @@ keyboard.inline_keyboard = {
 {text = 'تعطيل الايدي', callback_data=data.sender_user_id_.."/lockide"},{text = 'تفعيل الايدي', callback_data=data.sender_user_id_.."/unlockide"},
 },
 {
-{text = 'تعطيل الايدي بالصوره', callback_data=data.sender_user_id_.."/lockidephoto"},{text = 'تفعيل الايدي بالصوره', callback_data=data.sender_user_id_.."/unlockidephoto"},
+{text = 'تعطيل الايدي بالصورة', callback_data=data.sender_user_id_.."/lockidephoto"},{text = 'تفعيل الايدي بالصورة', callback_data=data.sender_user_id_.."/unlockidephoto"},
 },
 {
 {text = 'تعطيل الحظر', callback_data=data.sender_user_id_.."/lockkiked"},{text = 'تفعيل الحظر', callback_data=data.sender_user_id_.."/unlockkiked"},
